@@ -13,7 +13,7 @@ const app = x();
 Router
   .route('/')
   .get(r => r.res.end('Привет мир!'));
-Router
+SummerRouter
   .route('/:n1/:n2')
   .all(r => {
       const sum = Number(r.query.n1) + Number(r.query.n2);
