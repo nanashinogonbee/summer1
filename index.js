@@ -14,7 +14,7 @@ Router
   .route('/')
   .get(r => r.res.end('Привет мир!'));
 Router
-  .route('/')
+  .route('/:n1/:n2')
   .all(r => {
       const sum = Number(r.query.n1) + Number(r.query.n2);
       if ('cors' in r.query) r.res.set(CORS);
