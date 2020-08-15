@@ -10,18 +10,27 @@ const CORS = {
       'Access-Control-Allow-Headers':'cors,my,Content-Type,Accept,Access-Control-Allow-Headers'
 };
 const app = x();
-Router
-  .route('/')
-  .get(r => r.res.end('Привет мир!'));
-SummerRouter
-  .route('/:n1/:n2')
-  .all(r => {
-      const sum = Number(r.query.n1) + Number(r.query.n2);
+function summer(r, sum) {
       if ('cors' in r.query) r.res.set(CORS);
       r.res.format({
         'text/html': () => r.res.send(`<h2>Сумма:<i>${sum}</i></h2>`),
         'application/json': () => r.res.json({"Сумма:": sum})
       });  
+}
+Router
+  .route('/')
+  .get(r => r.res.end('Привет мир!'));
+SummerRouter
+  .route('/')
+  .all(r => {
+      const sum = Number(r.query.n1) + Number(r.query.n2);
+      return summer(r, sum);
+  });
+SummerRouter
+  .route('/:n1/:n2')
+  .all(r => {
+      const sum = Number(r.params.n1) + Number(r.params.n2);
+      return summer(r, sum);
   });
 app
   .use('/summer', SummerRouter)
