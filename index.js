@@ -14,7 +14,7 @@ function summer(r, sum) {
       if ('cors' in r.query) r.res.set(CORS);
       r.res.format({
         'text/html': () => r.res.send(`<h2>Сумма:<i>${sum}</i></h2>`),
-        'application/json': () => r.res.json({"Сумма:": sum})
+        'application/json': () => r.res.json({"Результат:": sum})
       });  
 }
 Router
