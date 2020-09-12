@@ -13,7 +13,7 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "repository": "https://github.com/GossJS/summer1/",
-  "author": "GossJS",
+  "repository": "https://github.com/nanashinogonbee/summer1/",
+  "author": "GossJS & nanashinogonbee",
   "license": "ISC"
 }
